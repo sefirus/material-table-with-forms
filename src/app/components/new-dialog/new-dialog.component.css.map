@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACf,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,aAAa;CAAG;;AAErC,AAAA,YAAY,CAAC;EACT,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,GAAG;CAAG",
+    "sources": [
+        "new-dialog.component.sass"
+    ],
+    "names": [],
+    "file": "new-dialog.component.css"
+}

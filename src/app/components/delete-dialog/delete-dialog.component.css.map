@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,GAAG;CAAG",
+    "sources": [
+        "delete-dialog.component.sass"
+    ],
+    "names": [],
+    "file": "delete-dialog.component.css"
+}
