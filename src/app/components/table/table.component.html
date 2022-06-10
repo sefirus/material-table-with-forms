@@ -47,6 +47,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator class="mat-elevation-z8 paginator" 
+    [pageSizeOptions]="[5, 10, 25, 100]" 
+    aria-label="Select page of users"></mat-paginator>
 
   <button mat-raised-button (click)="onNewProcedure()">New Procedure</button>
   

@@ -22,6 +22,7 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { NewDialogComponent } from './components/new-dialog/new-dialog.component';
 import { MultiSelectComponent } from './components/multi-select/multi-select.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { MultiSelectComponent } from './components/multi-select/multi-select.com
     MatCardModule,
     MatChipsModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
