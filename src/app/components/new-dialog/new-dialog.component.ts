@@ -4,7 +4,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Procedure } from 'src/app/Procedure';
 import { ProcedureService } from 'src/app/services/procedure.service';
 import { TableComponent } from '../table/table.component';
-
+import { SpecializationService } from 'src/app/services/specialization.service';
+import { Specialization } from 'src/app/Specialization';
 
 @Component({
   selector: 'app-new-dialog',
@@ -13,9 +14,16 @@ import { TableComponent } from '../table/table.component';
 })
 export class NewDialogComponent implements OnInit {
 
+  specializations: Specialization[] = [];
+  selectedSpec: Specialization[] = [];
+  isSelectionChanged: boolean = false;
+
   constructor(@Inject(FormBuilder) private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<TableComponent>,
-    private procedureService : ProcedureService) {   }
+    private procedureService : ProcedureService,
+    private specService : SpecializationService) {  
+      this.specializations = specService.getData();
+    }
 
   form = new FormGroup({
     name: new FormControl("", Validators.minLength(5)),
@@ -28,10 +36,22 @@ export class NewDialogComponent implements OnInit {
   }
 
   onSaveForm(): void{
-    this.procedureService.addProcedure(this.form.value as Procedure).subscribe(() => this.dialogRef.close(true));
+    const finalData : Procedure = this.form.value as Procedure;
+    finalData.specializations = this.selectedSpec;
+    this.procedureService.addProcedure(finalData).subscribe(() => this.dialogRef.close(true));
   }
 
   onNoClick(): void {
     this.dialogRef.close(false);
+  }
+
+  onMultiSelectSubmit(event : any) : void{
+    const key: string = event.key;
+    this.selectedSpec = [...event.data ] as Specialization[];
+    this.isSelectionChanged = event.isChanged;
+  }
+
+  isButtonEnabled(): boolean{
+    return this.form.valid && (this.form.dirty || this.isSelectionChanged); 
   }
 }

@@ -10,12 +10,18 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component'
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { NewDialogComponent } from './components/new-dialog/new-dialog.component';
+import { MultiSelectComponent } from './components/multi-select/multi-select.component';
 
 
 @NgModule({
@@ -24,7 +30,8 @@ import { NewDialogComponent } from './components/new-dialog/new-dialog.component
     TableComponent,
     DeleteDialogComponent,
     EditDialogComponent,
-    NewDialogComponent
+    NewDialogComponent,
+    MultiSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +46,11 @@ import { NewDialogComponent } from './components/new-dialog/new-dialog.component
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
+    MatAutocompleteModule, 
+    MatCardModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

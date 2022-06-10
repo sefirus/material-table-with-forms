@@ -19,7 +19,17 @@
       "name": "third procedure",
       "cost": 30,
       "description": "thrd procedure desription",
-      "duration": 10
+      "duration": 10,
+      "specializations": [
+        {
+          "id": 1,
+          "name": "first spec"
+        },
+        {
+          "id": 3,
+          "name": "third spec"
+        }
+      ]
     },
     {
       "id": 4,
@@ -40,14 +50,64 @@
       "name": "six procedure",
       "cost": 65,
       "description": "six procedure desription",
-      "duration": 15
+      "duration": 15,
+      "specializations": [
+        {
+          "id": 1,
+          "name": "first spec"
+        }
+      ]
     },
     {
       "id": 7,
-      "name": "sevens procedure",
-      "cost": 70,
+      "name": "sevens procedure ",
+      "cost": 71,
       "description": "sevens procedure desription",
-      "duration": 10
+      "duration": 10,
+      "specializations": [
+        {
+          "id": 1,
+          "name": "first spec"
+        },
+        {
+          "id": 4,
+          "name": "fouth spec"
+        },
+        {
+          "id": 3,
+          "name": "third spec"
+        }
+      ]
+    }
+  ],
+  "specializations": [
+    {
+      "id": 1,
+      "name": "first spec"
+    },
+    {
+      "id": 2,
+      "name": "second spec"
+    },
+    {
+      "id": 3,
+      "name": "third spec"
+    },
+    {
+      "id": 4,
+      "name": "fouth spec"
+    },
+    {
+      "id": 5,
+      "name": "fifth spec"
+    },
+    {
+      "id": 6,
+      "name": "six spec"
+    },
+    {
+      "id": 7,
+      "name": "sevens spec"
     }
   ]
 }
