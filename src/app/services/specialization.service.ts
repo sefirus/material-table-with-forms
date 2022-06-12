@@ -6,31 +6,38 @@ import { Specialization } from '../Specialization';
 const SAMPLE_DATA: Specialization[] =  [
   {
     "id" :  1,
-    "name" : "first spec"
+    "name" : "first spec",
+    "param" : 10
   },
   {
     "id" :  2,
-    "name" : "second spec"
+    "name" : "second spec",
+    "param" : 10
   },
   {
     "id" :  3,
-    "name" : "third spec"
+    "name" : "third spec",
+    "param" : 10
   },
   {
     "id" :  4,
-    "name" : "fouth spec"
+    "name" : "fouth spec",
+    "param" : 10
   },
   {
     "id" :  5,
-    "name" : "fifth spec"
+    "name" : "fifth spec",
+    "param" : 10
   },
   {
     "id" :  6,
-    "name" : "six spec"
+    "name" : "six spec",
+    "param" : 10
   },
   {
     "id" :  7,
-    "name" : "sevens spec"
+    "name" : "sevens spec",
+    "param" : 10
   }
 ]
 

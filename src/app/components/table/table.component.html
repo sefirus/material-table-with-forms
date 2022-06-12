@@ -1,13 +1,12 @@
 <div class="temporary-container">
-  <mat-form-field style="width: 700px;" appearance="outline">
+  <mat-form-field class="row" appearance="outline">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Placeholder" #input>
   </mat-form-field>
-<table 
-    [width]="700" 
+  <table 
     mat-table 
     [dataSource]="dataSource" 
-    class="mat-elevation-z8" 
+    class="mat-elevation-z8 row" 
     matSort>
   
     <ng-container matColumnDef="name">
@@ -47,7 +46,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator class="mat-elevation-z8 paginator" 
+
+  <mat-paginator class="mat-elevation-z8 row" 
     [pageSizeOptions]="[5, 10, 25, 100]" 
     aria-label="Select page of users"></mat-paginator>
 

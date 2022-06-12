@@ -4,10 +4,14 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 import { Specialization } from 'src/app/Specialization';
-import { Named } from 'src/app/NamedEntity'
 
-interface ItemData {
-  item : Named,
+interface Named {
+  id: number;
+  name: string;
+}
+
+interface ItemData<TEntity extends Named> {
+  item : TEntity,
   selected: boolean;
 }
 
@@ -16,21 +20,21 @@ interface ItemData {
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.sass']
 })
-export class MultiSelectComponent implements OnInit {
+export class MultiSelectComponent<T extends Named> implements OnInit {
 
-  @Output() result = new EventEmitter<{ key: string, data: Array<Named>, isChanged: boolean}>();
+  @Output() result = new EventEmitter<{ key: string, data: Array<T>, isChanged: boolean}>();
   
   @Input() placeholder: string = 'Select specializations';
-  @Input() data: Array<Named> = [];
-  @Input() alreadySelected: Array<Named> = [];
+  @Input() data: Array<T> = [];
+  @Input() alreadySelected: Array<T> = [];
   @Input() key: string = '';
   
   selectControl = new FormControl();
   
-  rawData: Array<ItemData> = [];
-  selectData: Array<ItemData> = [];
+  rawData: Array<ItemData<T>> = [];
+  selectData: Array<ItemData<T>> = [];
   
-  filteredData: Observable<Array<ItemData>>;
+  filteredData: Observable<Array<ItemData<T>>>;
   filterString: string = '';
 
   constructor() {
@@ -41,10 +45,9 @@ export class MultiSelectComponent implements OnInit {
     );    
   }
 
-  //this.rawData.push({ item, selected: this.alreadySelected.includes(item) }
   ngOnInit(): void {
     if(this.alreadySelected == undefined) this.alreadySelected = [];
-    this.data.forEach((item: Specialization) => {
+    this.data.forEach((item: T) => {
       this.rawData.push({ item, selected: false });
       if(this.alreadySelected.length > 0 && this.alreadySelected.find((as) => as.id === item.id)){
         this.toggleSelection(this.rawData[this.rawData.length - 1], true);
@@ -55,7 +58,7 @@ export class MultiSelectComponent implements OnInit {
   ngAfterViewInit(): void{
   }
 
-  filter(filter: string): Array<ItemData>{
+  filter(filter: string): Array<ItemData<T>>{
     this.filterString = filter;
     if (filter.length > 0) {
       return this.rawData.filter(option => {
@@ -68,12 +71,12 @@ export class MultiSelectComponent implements OnInit {
   
   displayFn = (): string => '';
 
-  optionClicked = (event: Event, data: ItemData): void => {
-    event.stopPropagation();
+  optionClicked = (data: ItemData<T>, event: Event): void => {
+    event?.stopPropagation();
     this.toggleSelection(data);
   };
 
-  toggleSelection(data: ItemData, initializing: boolean = false): void {
+  toggleSelection(data: ItemData<T>, initializing: boolean = false): void {
     data.selected = !data.selected;
   
     if (data.selected === true) {
@@ -88,14 +91,14 @@ export class MultiSelectComponent implements OnInit {
   };
 
   emitAdjustedData = (): void => {
-    const results: Array<Named> = []
-    this.selectData.forEach((data: ItemData) => {
+    const results: Array<T> = []
+    this.selectData.forEach((data: ItemData<T>) => {
       results.push(data.item);
     });
     this.result.emit({ key: this.key, data: results, isChanged: true });
   };
 
-  removeChip = (data: ItemData): void => {
+  removeChip = (data: ItemData<T>): void => {
     this.toggleSelection(data);
   };
 

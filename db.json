@@ -78,6 +78,69 @@
           "name": "third spec"
         }
       ]
+    },
+    {
+      "name": "123342",
+      "description": "123424",
+      "cost": 1243,
+      "duration": 124,
+      "specializations": [
+        {
+          "id": 3,
+          "name": "third spec",
+          "param": 10
+        },
+        {
+          "id": 4,
+          "name": "fouth spec",
+          "param": 10
+        },
+        {
+          "id": 5,
+          "name": "fifth spec",
+          "param": 10
+        },
+        {
+          "id": 1,
+          "name": "first spec",
+          "param": 10
+        },
+        {
+          "id": 2,
+          "name": "second spec",
+          "param": 10
+        }
+      ],
+      "id": 8
+    },
+    {
+      "name": "2134231",
+      "description": "12341234",
+      "cost": 1234,
+      "duration": 1234,
+      "specializations": [
+        {
+          "id": 2,
+          "name": "second spec",
+          "param": 10
+        },
+        {
+          "id": 3,
+          "name": "third spec",
+          "param": 10
+        },
+        {
+          "id": 4,
+          "name": "fouth spec",
+          "param": 10
+        },
+        {
+          "id": 5,
+          "name": "fifth spec",
+          "param": 10
+        }
+      ],
+      "id": 9
     }
   ],
   "specializations": [

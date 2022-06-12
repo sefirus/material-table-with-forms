@@ -21,10 +21,10 @@
   
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
     <mat-option *ngFor="let data of filteredData | async">
-      <div (click)="optionClicked($event, data)">
+      <div (click)="optionClicked(data, $event)">
         <mat-checkbox [checked]="data.selected" 
           (change)="toggleSelection(data)"
-          (click)="toggleSelection(data)">
+          (click)="$event.stopPropagation()">
           {{ data.item.name }}
         </mat-checkbox>
       </div>

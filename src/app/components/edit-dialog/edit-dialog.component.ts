@@ -53,7 +53,7 @@ export class EditDialogComponent implements OnInit {
   }
 
   onMultiSelectSubmit(event : any) : void{
-    const key: string = event.key;
+    console.log(...event.data);
     this.selectedSpec = [...event.data ] as Specialization[];
     this.isSelectionChanged = event.isChanged;
   }
